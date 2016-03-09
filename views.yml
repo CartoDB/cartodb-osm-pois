@@ -1,0 +1,15 @@
+- name: places_of_worship
+  comment: Places of worship like churches
+  select: planet.tags -> 'name'::text AS name,
+    planet.tags -> 'religion'::text AS religion,
+    planet.tags -> 'denomination'::text AS denomination
+  where: planet.tags @> '"amenity"=>"place_of_worship"'
+- name: banks
+  select: planet.tags -> 'name'::text AS name,
+    planet.tags -> 'operator'::text AS operator,
+      CASE planet.tags -> 'atm'::text
+        WHEN 'yes'::text THEN true
+        WHEN 'no'::text THEN false
+        ELSE NULL::boolean
+      END AS has_atm
+  where: planet.tags @> '"amenity"=>"bank"'
