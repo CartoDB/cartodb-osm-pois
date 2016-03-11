@@ -7,3 +7,7 @@ This is a set of materialized views for extracting OSM data for use as datasets.
 ## Similar projects ##
 * [GeoFabrik Shapefiles](http://www.geofabrik.de/data/shapefiles.html)
 * [ClearTables](https://github.com/pnorman/ClearTables)
+
+## License
+
+This project is under [the MIT license](license), but if used with OSM data the resulting output will be ODbL licensed.
