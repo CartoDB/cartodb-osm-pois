@@ -13,3 +13,7 @@
         ELSE NULL::boolean
       END AS has_atm
   where: planet.tags @> '"amenity"=>"bank"'
+- name: atms
+  select: planet.tags -> 'name' AS name,
+    planet.tags -> 'operator' AS operator
+  where: planet.tags @> 'amenity=>atm'
